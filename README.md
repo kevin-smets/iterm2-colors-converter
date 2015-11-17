@@ -1,5 +1,7 @@
 # itermcolors-converter
 
+[![devDependency Status](https://david-dm.org/kevin-smets/itermcolors-converter/dev-status.svg)](https://david-dm.org/kevin-smets/itermcolors-converter#info=devDependencies)
+
 Converts iTerm2 color schemes to json and sass.
 
 ## Install dependencies
