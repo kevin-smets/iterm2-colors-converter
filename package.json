@@ -1,0 +1,35 @@
+{
+  "name": "itermcolors-converter",
+  "version": "1.0.0",
+  "description": "Converts the iTerm2 color schemes to json, sass and scss.",
+  "main": "convert.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevin-smets/itermcolors-converter.git"
+  },
+  "keywords": [
+    "itermcolors",
+    "convert",
+    "json",
+    "sass",
+    "scss"
+  ],
+  "author": "Kevin Smets",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevin-smets/itermcolors-converter/issues"
+  },
+  "homepage": "https://github.com/kevin-smets/itermcolors-converter#readme",
+  "devDependencies": {
+    "del": "^2.1.0",
+    "fs-extra": "^0.26.2",
+    "github-download": "^0.4.0",
+    "json2sass": "^0.2.0",
+    "json2scss": "0.0.2",
+    "promise": "^7.0.4",
+    "rgb-to-hex": "0.0.0",
+    "sax": "^1.1.4"
+  }
+}
