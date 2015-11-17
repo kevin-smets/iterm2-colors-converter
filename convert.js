@@ -1,27 +1,28 @@
+const useFunctionalVarNames = require('yargs').argv.functional;
 const fs = require('fs');
 const fse = require('fs-extra');
 const json2scss = require('json2scss');
 const path = require('path');
 const Promise = require('promise');
 
-const functionalColorMap = {
-    "ansi-0-color": "black-normal",
-    "ansi-1-color": "red-normal",
-    "ansi-2-color": "green-normal",
-    "ansi-3-color": "yellow-normal",
-    "ansi-4-color": "blue-normal",
-    "ansi-5-color": "magenta-normal",
-    "ansi-6-color": "cyan-normal",
-    "ansi-7-color": "white-normal",
-    "ansi-8-color": "black-bright",
-    "ansi-9-color": "red-bright",
-    "ansi-10-color": "green-bright",
-    "ansi-11-color": "yellow-bright",
-    "ansi-12-color": "blue-bright",
-    "ansi-13-color": "magenta-bright",
-    "ansi-14-color": "cyan-bright",
-    "ansi-15-color": "white-bright"
-};
+const functionalColorMap = [
+    {asIs: "ansi-0-color", functional: "black-normal"},
+    {asIs: "ansi-1-color", functional: "red-normal"},
+    {asIs: "ansi-2-color", functional: "green-normal"},
+    {asIs: "ansi-3-color", functional: "yellow-normal"},
+    {asIs: "ansi-4-color", functional: "blue-normal"},
+    {asIs: "ansi-5-color", functional: "magenta-normal"},
+    {asIs: "ansi-6-color", functional: "cyan-normal"},
+    {asIs: "ansi-7-color", functional: "white-normal"},
+    {asIs: "ansi-8-color", functional: "black-bright"},
+    {asIs: "ansi-9-color", functional: "red-bright"},
+    {asIs: "ansi-10-color", functional: "green-bright"},
+    {asIs: "ansi-11-color", functional: "yellow-bright"},
+    {asIs: "ansi-12-color", functional: "blue-bright"},
+    {asIs: "ansi-13-color", functional: "magenta-bright"},
+    {asIs: "ansi-14-color", functional: "cyan-bright"},
+    {asIs: "ansi-15-color", functional: "white-bright"}
+];
 
 var parse = function (file) {
     const saxStream = require("sax").createStream(true, {}); // strict = true
@@ -66,7 +67,6 @@ var parse = function (file) {
         saxStream.on("text", function (text) {
             if (blueDone && greenDone && redDone) {
                 colors[colorId] = "#" + rgbToHex("rgb(" + colorRed + "," + colorGreen + "," + colorBlue + ")");
-                //colors[colorId] = "rgb(" + colorRed + "," + colorGreen + "," + colorBlue + ")";
             }
 
             if (text.match(/^[0-9]/)) {
@@ -109,14 +109,42 @@ var parse = function (file) {
         });
 
         saxStream.on("end", function () {
-            fse.ensureDirSync("./dist/json");
-            fse.ensureDirSync("./dist/sass");
+            var distFolder = path.join(__dirname, "dist/abstract");
 
-            fs.writeFileSync('./dist/json/' + file + '.json', JSON.stringify(colors));
+            var jsonString = JSON.stringify(colors, null, 2); // Pretty print Json
 
-            var scss = json2scss(require('./dist/json/' + file + '.json'));
+            if (useFunctionalVarNames) {
+                functionalColorMap.forEach(function(map){
+                    jsonString = jsonString.replace(map.asIs, map.functional);
+                });
+                distFolder = path.join(__dirname, "dist/functional");
+            }
 
-            fs.writeFileSync('./dist/sass/' + file + '.scss', scss);
+            fse.ensureDirSync(path.join(distFolder, "json"));
+            fse.ensureDirSync(path.join(distFolder, "scss"));
+            fse.ensureDirSync(path.join(distFolder, "less"));
+            fse.ensureDirSync(path.join(distFolder, "sass"));
+            fse.ensureDirSync(path.join(distFolder, "stylus"));
+
+            // Generate JSON
+            fs.writeFileSync(path.join(distFolder, "json") + '/' + file + '.json', jsonString);
+
+            var scss = json2scss(require(path.join(distFolder, "json") + '/' + file + '.json'));
+            var sass = scss.replace(/;/g,"");
+            var stylus = sass.replace(/:/g,"");
+            var less = scss.replace(/\$/g,"@");
+
+            // Generate Scss
+            fs.writeFileSync(path.join(distFolder, "scss") + '/' + file + '.scss', scss);
+
+            // Generate Sass
+            fs.writeFileSync(path.join(distFolder, "sass") + '/' + file + '.sass', sass);
+
+            // Generate Stylus
+            fs.writeFileSync(path.join(distFolder, "stylus") + '/' + file + '.styl', stylus);
+
+            // Generate Less
+            fs.writeFileSync(path.join(distFolder, "less") + '/' + file + '.less', less);
 
             resolve();
         });
@@ -126,9 +154,9 @@ var parse = function (file) {
     });
 };
 
-fs.readdir('./download/schemes', function(err, files) {
+fs.readdir('./download/schemes', function (err, files) {
     if (err) return;
-    files.forEach(function(f) {
+    files.forEach(function (f) {
         var fileBaseName = path.basename(f, '.itermcolors');
 
         console.log('Parsing ' + fileBaseName);

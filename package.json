@@ -1,7 +1,7 @@
 {
   "name": "itermcolors-converter",
   "version": "1.0.0",
-  "description": "Converts the iTerm2 color schemes to json, sass and scss.",
+  "description": "Converts the iTerm2 color schemes to JSON, Sass / Scss, Stylus and Less.",
   "main": "convert.js",
   "scripts": {
     "create": "node download && node convert"
@@ -31,6 +31,7 @@
     "json2scss": "0.0.2",
     "promise": "^7.0.4",
     "rgb-to-hex": "0.0.0",
-    "sax": "^1.1.4"
+    "sax": "^1.1.4",
+    "yargs": "^3.30.0"
   }
 }
