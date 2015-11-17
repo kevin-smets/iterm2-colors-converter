@@ -1,6 +1,6 @@
-# itermcolors-converter
+# iterm2colors-converter
 
-[![devDependency Status](https://david-dm.org/kevin-smets/itermcolors-converter/dev-status.svg)](https://david-dm.org/kevin-smets/itermcolors-converter#info=devDependencies)
+[![devDependency Status](https://david-dm.org/kevin-smets/iterm2colors-converter/dev-status.svg)](https://david-dm.org/kevin-smets/iterm2colors-converter#info=devDependencies)
 
 Converts iTerm2 color schemes to variables for:
 
@@ -9,13 +9,17 @@ Converts iTerm2 color schemes to variables for:
 - Stylus
 - Less
 
-## Install dependencies
+The resulting files can be found at https://github.com/kevin-smets/iterm2colors
+
+## Build it yourself
+
+### Install dependencies
 
 ```
 npm i
 ```
 
-## Download and convert
+### Download and convert
 
 ```
 npm run create
@@ -23,8 +27,8 @@ npm run create
 
 The resulting files are stored in `./dist`
 
-## Command line parameters
+### Command line parameters
 
-### --functional
+#### --functional
 
 Creates the dist files with functional variable names. E.g. `ansi-0-color` maps to `black-normal`
