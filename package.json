@@ -4,6 +4,7 @@
   "description": "Converts the iTerm2 color schemes to json, sass and scss.",
   "main": "convert.js",
   "scripts": {
+    "create": "node download && node convert"
   },
   "repository": {
     "type": "git",

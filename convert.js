@@ -131,8 +131,6 @@ fs.readdir('./download/schemes', function(err, files) {
     files.forEach(function(f) {
         var fileBaseName = path.basename(f, '.itermcolors');
 
-        if (fileBaseName == "Parasio Dark") return; // ToDo parsing fails on Parasio Dark -> https://github.com/mbadolato/iTerm2-Color-Schemes/pull/54
-
         console.log('Parsing ' + fileBaseName);
         parse(fileBaseName);
     });
