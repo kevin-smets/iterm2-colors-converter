@@ -1,4 +1,4 @@
-# iterm2colors-converter
+# iterm2-colors-converter
 
 [![devDependency Status](https://david-dm.org/kevin-smets/iterm2-colors-converter/dev-status.svg)](https://david-dm.org/kevin-smets/iterm2-colors-converter#info=devDependencies)
 
