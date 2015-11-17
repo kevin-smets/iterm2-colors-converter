@@ -1,6 +1,6 @@
 # iterm2colors-converter
 
-[![devDependency Status](https://david-dm.org/kevin-smets/iterm2colors-converter/dev-status.svg)](https://david-dm.org/kevin-smets/iterm2colors-converter#info=devDependencies)
+[![devDependency Status](https://david-dm.org/kevin-smets/iterm2-colors-converter/dev-status.svg)](https://david-dm.org/kevin-smets/iterm2-colors-converter#info=devDependencies)
 
 Converts iTerm2 color schemes to variables for:
 
@@ -9,7 +9,7 @@ Converts iTerm2 color schemes to variables for:
 - Stylus
 - Less
 
-The resulting files can be found over at [kevin-smets/iterm2colors](https://github.com/kevin-smets/iterm2colors)
+The resulting files can be found over at [kevin-smets/iterm2colors](https://github.com/kevin-smets/iterm2-colors)
 
 ## Build it yourself
 

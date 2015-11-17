@@ -1,6 +1,5 @@
 const del = require('del');
 const ghdownload = require('github-download');
-//const exec = require('exec');
 const path = require('path');
 
 const dir = path.join(process.cwd(), 'download');
