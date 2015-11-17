@@ -9,7 +9,7 @@ Converts iTerm2 color schemes to variables for:
 - Stylus
 - Less
 
-The resulting files can be found at https://github.com/kevin-smets/iterm2colors
+The resulting files can be found over at [kevin-smets/iterm2colors](https://github.com/kevin-smets/iterm2colors)
 
 ## Build it yourself
 
@@ -31,4 +31,4 @@ The resulting files are stored in `./dist`
 
 #### --functional
 
-Creates the dist files with functional variable names. E.g. `ansi-0-color` maps to `black-normal`
+Creates the dist files with functional variable names. E.g. `ansi-0-color` maps to `black-normal`.
