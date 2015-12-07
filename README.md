@@ -22,13 +22,27 @@ npm i
 ### Download and convert
 
 ```
-npm run create
+npm run all
+```
+
+Or you can run them separately:
+
+```
+npm run abstract
+```
+
+or
+
+```
+npm run functional
 ```
 
 The resulting files are stored in `./dist`
 
 ### Command line parameters
 
-#### --functional
+#### Abstract? Functional?
 
-Creates the dist files with functional variable names. E.g. `ansi-0-color` maps to `black-normal`.
+"Abstract" generates the variable names as they are defined in iTerm2. E.g. `ansi-0-color`.
+
+"Functional" maps the abstract names to a more functional name: e.g. `ansi-0-color` maps to `black-normal`.
