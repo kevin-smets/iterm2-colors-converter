@@ -5,7 +5,7 @@ const path = require('path');
 const dir = path.join(process.cwd(), 'download');
 
 del(dir).then(function() {
-    ghdownload({user: 'mbadolato', repo: 'iTerm2-Color-Schemes', ref: 'e96883d', dir: 'download'}, dir)
+    ghdownload({user: 'mbadolato', repo: 'iTerm2-Color-Schemes', ref: 'a646a1d', dir: 'download'}, dir)
         .on('dir', function (dir) {
             console.log(dir)
         })
