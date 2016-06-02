@@ -13,7 +13,9 @@
     "url": "git+https://github.com/kevin-smets/iterm2-colors-converter.git"
   },
   "keywords": [
-    "itermcolors",
+    "iterm2colors",
+    "iterm2colors",
+    "iterm2",
     "convert",
     "json",
     "sass",
@@ -27,13 +29,13 @@
   "homepage": "https://github.com/kevin-smets/iterm2-colors-converter#readme",
   "devDependencies": {
     "del": "^2.2.0",
-    "fs-extra": "^0.26.4",
-    "github-download": "^0.4.0",
+    "fs-extra": "^0.30.0",
+    "github-download": "^0.5.0",
     "json2sass": "^0.2.0",
     "json2scss": "0.0.2",
     "promise": "^7.1.1",
     "rgb-to-hex": "0.0.0",
     "sax": "^1.1.4",
-    "yargs": "^3.32.0"
+    "yargs": "^4.7.1"
   }
 }
