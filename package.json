@@ -1,6 +1,6 @@
 {
   "name": "iterm2-colors-converter",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Converts the iTerm2 color schemes to JSON, Sass / Scss, Stylus and Less.",
   "main": "convert.js",
   "scripts": {
