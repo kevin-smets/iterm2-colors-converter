@@ -4,9 +4,10 @@
   "description": "Converts the iTerm2 color schemes to JSON, Sass / Scss, Stylus and Less.",
   "main": "convert.js",
   "scripts": {
-    "abstract": "node download && node convert",
-    "all": "node download && node convert && node convert --functional",
-    "functional": "node download && node convert --functional"
+    "clean": "rm -rf dist",
+    "abstract": "npm run clean && node convert",
+    "all": "npm run clean && node convert && node convert --functional",
+    "functional": "npm run clean && node convert --functional"
   },
   "repository": {
     "type": "git",
@@ -26,14 +27,13 @@
   "bugs": {
     "url": "https://github.com/kevin-smets/iterm2-colors-converter/issues"
   },
+  "private": true,
   "homepage": "https://github.com/kevin-smets/iterm2-colors-converter#readme",
   "devDependencies": {
     "del": "^2.2.0",
     "fs-extra": "^0.30.0",
-    "github-download": "^0.5.0",
-    "json2sass": "^0.2.0",
+    "iterm2-color-schemes": "github:kevin-smets/iTerm2-Color-Schemes#a736141",
     "json2scss": "0.0.2",
-    "promise": "^7.1.1",
     "rgb-to-hex": "0.0.0",
     "sax": "^1.1.4",
     "yargs": "^6.2.0"

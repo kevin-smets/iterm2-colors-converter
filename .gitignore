@@ -1,14 +1,6 @@
-# OS X
-*DS_Store
-
-# temp download folders look like 1447763160867-317919785855338
-# npm-debug.log
-*-*
-
-# IntelliJ
+npm-debug.log
 .idea
 
 # Other
-download
 dist
 node_modules
