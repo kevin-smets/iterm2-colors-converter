@@ -16,25 +16,25 @@ The resulting files can be found over at [kevin-smets/iterm2colors](https://gith
 ### Install dependencies
 
 ```
-npm i
+yarn install
 ```
 
 ### Download and convert
 
 ```
-npm run all
+yarn run all
 ```
 
 Or you can run them separately:
 
 ```
-npm run abstract
+yarn run abstract
 ```
 
 or
 
 ```
-npm run functional
+yarn run functional
 ```
 
 The resulting files are stored in `./dist`
